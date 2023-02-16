@@ -173,7 +173,7 @@ function printCart() {
                 <td>${cart[i].price}</td>
                 <td>${cart[i].quantity}</td>
                 <td>${cart[i].subtotalWithDiscount}</td>
-                <td><button class="btn btn-primary" onclick="removeFromCart(${cart[i].id})">-1</button></td>
+                <td><button class="btn btn-warning" onclick="removeFromCart(${cart[i].id})">-1</button></td>
         </tr>`
         totalPrice += cart[i].subtotalWithDiscount;
     }

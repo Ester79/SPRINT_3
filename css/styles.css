@@ -70,6 +70,74 @@
   box-sizing: border-box;
 }
 
+
+
+
+
+/* STYES CUSTOMIZED*/
+.headerCustomized {
+  background-image: url(/images/space.jpg);
+}
+
+.addCartBtn{
+  background-color: #8e34ff ;
+}
+
+.navigation {
+  background-color: aliceblue;
+}
+
+.linkCustomized:hover {
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.h2Customized {
+  background-color: #8e34ff;
+  color: white;
+  border: 1px solid palegreen;
+}
+
+.sectionCustomized{
+ background: linear-gradient(45deg, #E39BEB , #DEF6AD , #9BD6EB , white );
+ background-size: 300% 300%;
+ animation-name: colorChange;
+ animation-duration: 15s;
+ animation-timing-function: ease-in-out;
+ animation-iteration-count: infinite; 
+}
+
+@keyframes colorChange{
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+
+.modalHeaderCustomized {
+  color:black;
+  background-color: aliceblue;
+}
+
+
+
+.h3Customized:hover{
+  cursor: pointer;
+  background: linear-gradient(45deg, #E39BEB , #DEF6AD , #9BD6EB , white );
+  background-size: 300% 300%;
+  animation-name: colorChange;
+  animation-duration: 15s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite; 
+}
+
+
 @media (prefers-reduced-motion: no-preference) {
   :root {
     scroll-behavior: smooth;
@@ -490,6 +558,8 @@ progress {
 .lead {
   font-size: 1.25rem;
   font-weight: 300;
+  border-radius: 50px;
+  background-color: white;
 }
 
 .display-1 {
@@ -3457,13 +3527,16 @@ textarea.form-control-lg {
 }
 
 .btn-outline-dark {
-  color: #212529;
+  color: white;
   border-color: #212529;
+  background-color: #8e34ff;
+  border: 2px solid black;
 }
 .btn-outline-dark:hover {
-  color: #fff;
-  background-color: #212529;
-  border-color: #212529;
+  color: white;
+  background-color: black;
+  border: 2px solid #8e34ff;
+
 }
 .btn-check:focus + .btn-outline-dark, .btn-outline-dark:focus {
   box-shadow: 0 0 0 0.25rem rgba(33, 37, 41, 0.5);
@@ -4526,10 +4599,16 @@ textarea.form-control-lg {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: white;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
+  border: 5px solid aliceblue;
+  border-radius: 2rem;
+}
+
+.card:hover{
+  background-color: honeydew;
+  border: 5px solid white ;
+  border-radius: 8rem;
 }
 .card > hr {
   margin-right: 0;
