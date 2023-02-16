@@ -153,6 +153,7 @@ function applyPromotionsCart() {
                     }
                 }
             }
+
         }
       
     }
@@ -172,6 +173,7 @@ function printCart() {
                 <td>${cart[i].price}</td>
                 <td>${cart[i].quantity}</td>
                 <td>${cart[i].subtotalWithDiscount}</td>
+                <td><button class="btn btn-primary" onclick="removeFromCart(${cart[i].id})">-1</button></td>
         </tr>`
         totalPrice += cart[i].subtotalWithDiscount;
     }
@@ -185,17 +187,72 @@ function addToCart(id) {
     // Refactor previous code in order to simplify it 
     // 1. Loop for to the array products to get the item to add to cart
     // 2. Add found product to the cart array or update its quantity in case it has been added previously.
+    let unitsCart = document.getElementById("count_product");
+    let totalUnits = 0;
+    for (let i = 0; i < products.length; i++) {
+        let found = false;
+        if (id === products[i].id) {
+            for (let j = 0; j < cart.length; j++) {
+                if (id === cart[j].id) {
+                    cart[j].quantity += 1;
+                    cart[j].subtotal = cart[j].quantity * cart[j].price;
+                    cart[j].subtotalWithDiscount = cart[j].quantity * cart[j].price;
+                    found = true;
+                }
+            }
+            if (found === false) {
+                cart.push({
+                    id: products[i].id,
+                    name: products[i].name,
+                    type: products[i].type,
+                    price: products[i].price,
+                    quantity: 1,
+                    subtotal: 1 * products[i].price,
+                    subtotalWithDiscount: 1 * products[i].price,   
+                }) 
+            }  
+        }  
+    }
+    for(let i = 0; i < cart.length; i++){
+        totalUnits += cart[i].quantity;
+        unitsCart.innerHTML = totalUnits;
+    }
+    this.calculateTotalPrice();
+    this.applyPromotionsCart();
+    this.printCart();
+   
+}
+
+function calculateTotalPrice(){
+    let totalPrice = document.getElementById("total_price");
+    let finalPrice = 0;
+    for(let i = 0; i < cart.length; i++){
+        finalPrice += cart[i].subtotalWithDiscount;
+    }
+    totalPrice.innerHTML = finalPrice;
 }
 
 // Exercise 8
 function removeFromCart(id) {
     // 1. Loop for to the array products to get the item to add to cart
     // 2. Add found product to the cartList array
+    for (let i = 0; i < cart.length; i++) {
+        if (id === cart[i].id) {
+            if (cart[i].quantity === 1) {
+                cart.splice(i, 1);
+            } else {
+                cart[i].quantity -= 1;
+                cart[i].subtotal = cart[i].quantity * cart[i].price;
+                cart[i].subtotalWithDiscount = cart[i].quantity * cart[i].price;
+            }
+        }
+    }
+    this.calculateTotalPrice();
+    this.applyPromotionsCart();
+    this.printCart();
 }
 
 function open_modal(){
 	console.log("Open Modal");
-    this.generateCart();
-	// printCart();
-    // this.generateCart();
+    this.addToCart();
 }
