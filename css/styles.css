@@ -2202,6 +2202,11 @@ progress {
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
+.errorInput{
+  border:1px solid red;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .form-control {
     transition: none;
@@ -2903,6 +2908,14 @@ textarea.form-control-lg {
 }
 
 .invalid-feedback {
+  display: none;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 0.875em;
+  color: #dc3545;
+}
+
+.errorMessage {
   display: none;
   width: 100%;
   margin-top: 0.25rem;
